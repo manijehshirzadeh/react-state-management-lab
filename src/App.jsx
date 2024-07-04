@@ -4,6 +4,7 @@ const App = () => {
   const [team, setTeam] = useState([]);
   const [money, setMoney] = useState(100);
   const [totalStrength, setTotalStrength] = useState(0);
+  const [totalAgility, setTotalAgility] = useState(0);
   const [zombieFighters, setZombieFighters] = useState([
     {
       name: "Survivor",
@@ -85,9 +86,10 @@ const App = () => {
           return fighter.name !== fighterToBeAdded.name;
         })
       );
-      setTeam((prevFighters) => [...prevFighters, fighterToBeAdded]);
-      setMoney((prevMoney) => prevMoney - fighterToBeAdded.price);
+      setTeam((prev) => [...prev, fighterToBeAdded]);
+      setMoney((prev) => prev - fighterToBeAdded.price);
       setTotalStrength((prev) => prev + fighterToBeAdded.strength);
+      setTotalAgility((prev) => prev + fighterToBeAdded.agility);
     } else {
       console.log("Not enough money");
     }
@@ -99,9 +101,10 @@ const App = () => {
       return fighter.name !== fighterToBeRemoved.name;
     });
     setTeam(updatedFighters);
-    setZombieFighters((prevFighters) => [...prevFighters, fighterToBeRemoved]);
-    setMoney((prevMoney) => prevMoney + fighterToBeRemoved.price);
+    setZombieFighters((prev) => [...prev, fighterToBeRemoved]);
+    setMoney((prev) => prev + fighterToBeRemoved.price);
     setTotalStrength((prev) => prev - fighterToBeRemoved.strength);
+    setTotalAgility((prev) => prev - fighterToBeRemoved.agility);
   };
 
   return (
@@ -112,6 +115,8 @@ const App = () => {
         <h2>Money:{money}</h2>
         {/* Display total team strength*/}
         <h2>Team Strength: {totalStrength}</h2>
+        {/* Display total team agility*/}
+        <h2>Team Agility: {totalAgility}</h2>
       </div>
 
       {/* Display current team */}
