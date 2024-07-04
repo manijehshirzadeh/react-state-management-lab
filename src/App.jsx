@@ -90,19 +90,36 @@ const App = () => {
   return (
     <>
       <h1>Zombie Fighters</h1>
-      <h2>Money:{money}</h2>
-      <ul>
-        {zombieFighters.map((fighter) => (
-          <div key={fighter.strength}>
-            <img src={fighter.img} alt="" />
-            {fighter.name}
-            <li> Price: {fighter.price}</li>
-            <li> strength: {fighter.strength}</li>
-            <li> agility: {fighter.agility}</li>
-            <button onClick={() => handleAddFighter(fighter)}>Add</button>
-          </div>
-        ))}
-      </ul>
+      <div>
+        <h2>Fighters</h2>
+        <h2>Money:{money}</h2>
+        <ul>
+          {zombieFighters.map((fighter) => (
+            <div key={fighter.strength}>
+              <img src={fighter.img} alt="" />
+              <li> {fighter.name} </li>
+              <li> Price: {fighter.price} </li>
+              <li> strength: {fighter.strength}</li>
+              <li> agility: {fighter.agility}</li>
+              <button onClick={() => handleAddFighter(fighter)}>Add</button>
+            </div>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2>Your Team</h2>
+        <ul>
+          {team.map((member) => (
+            <div key={member.strength}>
+              <img src={member.img} alt="" />
+              <li> {member.name} </li>
+              <li> Price: {member.price} </li>
+              <li> strength: {member.strength}</li>
+              <li> agility: {member.agility}</li>
+            </div>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };
